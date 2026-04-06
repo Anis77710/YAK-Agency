@@ -3,7 +3,6 @@ import heroDashboard from "@/assets/hero-dashboard.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Background grid pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-10"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--border)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)`,
@@ -13,8 +12,6 @@ const HeroSection = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary/8 blur-[150px]" />
       </div>
-
-      {/* Purple accent bar at top */}
       <div className="absolute top-[72px] left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
 
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
@@ -34,17 +31,17 @@ const HeroSection = () => {
 
           <div className="flex items-center gap-8 pt-4">
             <div>
-              <span className="font-display font-black text-4xl text-foreground">12</span>
+              <span className="font-display font-black text-4xl text-foreground">3</span>
               <span className="text-primary text-xl font-bold align-top">+</span>
               <p className="text-muted-foreground text-xs uppercase tracking-wider">Years Experience</p>
             </div>
             <div>
-              <span className="font-display font-black text-4xl text-foreground">30</span>
+              <span className="font-display font-black text-4xl text-foreground">7</span>
               <span className="text-primary text-xl font-bold align-top">+</span>
               <p className="text-muted-foreground text-xs uppercase tracking-wider">Projects</p>
             </div>
             <div>
-              <span className="font-display font-black text-4xl text-foreground">75</span>
+              <span className="font-display font-black text-4xl text-foreground">15</span>
               <p className="text-muted-foreground text-xs uppercase tracking-wider">Cases</p>
             </div>
           </div>

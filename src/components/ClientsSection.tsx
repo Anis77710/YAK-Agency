@@ -1,5 +1,5 @@
 const clients = [
-  "ExpressPoint", "КорреспондентNet", "ImageCopec", "Vipro.ua", "Cultino"
+  "Daraz Nepal", "Foodmandu", "Khalti", "Sastodeal", "HamroPatro"
 ];
 
 const ClientsSection = () => {

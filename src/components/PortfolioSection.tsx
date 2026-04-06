@@ -2,6 +2,8 @@ import portfolioTireshop from "@/assets/portfolio-tireshop.jpg";
 import portfolioTranslate from "@/assets/portfolio-translate.jpg";
 import portfolioHealthcare from "@/assets/portfolio-healthcare.jpg";
 import portfolioSportblog from "@/assets/portfolio-sportblog.jpg";
+import portfolioTrekking from "@/assets/portfolio-trekking.jpg";
+import portfolioHandicraft from "@/assets/portfolio-handicraft.jpg";
 
 const projects = [
   {
@@ -26,7 +28,19 @@ const projects = [
     title: "Sport Blog",
     image: portfolioSportblog,
     tags: ["#UI/UX", "#SEO", "#Writing", "#Development"],
-    year: "2022",
+    year: "2024",
+  },
+  {
+    title: "Nepal Trekking Hub",
+    image: portfolioTrekking,
+    tags: ["#UI/UX", "#Development", "#SEO"],
+    year: "2024",
+  },
+  {
+    title: "Nepali Handicraft Store",
+    image: portfolioHandicraft,
+    tags: ["#UI/UX", "#E-Commerce", "#Development"],
+    year: "2025",
   },
 ];
 

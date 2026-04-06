@@ -18,7 +18,7 @@ const AboutSection = () => {
                 />
               </div>
               <div className="mt-6 text-center">
-                <p className="font-display font-bold text-lg text-foreground">YAK Creative 🇺🇦</p>
+                <p className="font-display font-bold text-lg text-foreground">YAK Creative 🇳🇵</p>
                 <p className="text-muted-foreground text-sm">Founder & CTO, Full Stack Web Developer</p>
               </div>
             </div>
@@ -29,24 +29,24 @@ const AboutSection = () => {
               How It Started
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              As a self-taught creative, I ventured into the digital arena in 2012, beginning with full-cycle website development. Over time, I acquired specializations out of necessity, ranging from Web Design to SEO. To further deepen my knowledge, I moved to refining the craft.
+              Based in Nepal, I started YAK Creative in 2023 with a passion for building beautiful, functional websites for Nepali businesses. From local startups to established brands, I help companies across Nepal establish their digital presence with modern web design, development, and SEO.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              There, I embraced the challenge of becoming a full-time student at a coding bootcamp in San Jose, where I completed the program with a track including Java, MEAN, and a "free elective" Python, getting the highest grades of exam proficiency.
+              Having worked with various Nepali companies, I understand the local market and what it takes to create websites that resonate with Nepali audiences. My focus is on delivering high-quality, affordable web solutions tailored to the needs of businesses in Nepal.
             </p>
 
             <div className="flex items-center gap-12 pt-6">
               <div>
-                <span className="font-display font-black text-4xl gradient-text">17</span>
+                <span className="font-display font-black text-4xl gradient-text">3</span>
                 <p className="text-muted-foreground text-xs uppercase tracking-wider mt-1">Years Of Experience</p>
               </div>
               <div>
-                <span className="font-display font-black text-4xl gradient-text">32</span>
+                <span className="font-display font-black text-4xl gradient-text">7</span>
                 <p className="text-muted-foreground text-xs uppercase tracking-wider mt-1">Finished Projects</p>
               </div>
               <div>
-                <span className="font-display font-black text-4xl gradient-text">4256+</span>
-                <p className="text-muted-foreground text-xs uppercase tracking-wider mt-1">Doses Coffee</p>
+                <span className="font-display font-black text-4xl gradient-text">15</span>
+                <p className="text-muted-foreground text-xs uppercase tracking-wider mt-1">Cases</p>
               </div>
             </div>
           </div>
