@@ -1,29 +1,31 @@
-import { ArrowRight } from "lucide-react";
-
 const CTASection = () => {
   return (
-    <section className="py-32">
+    <section id="contacts" className="py-32">
       <div className="container mx-auto px-6">
-        <div className="relative overflow-hidden rounded-3xl glass-card p-12 md:p-20 text-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
-
-          <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-            <h2 className="font-display font-900 text-4xl md:text-6xl">
-              Ready to Level Up?
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="font-display font-black text-5xl md:text-6xl text-foreground leading-tight">
+              STILL HAVE
+              <br />
+              QUESTIONS?
             </h2>
-            <p className="text-muted-foreground text-lg md:text-xl">
-              Join thousands of gaming organizations already using GameVault to manage their competitive ecosystem.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="group px-8 py-4 bg-primary text-primary-foreground font-display font-semibold rounded-2xl glow-purple hover:opacity-90 transition-all flex items-center gap-2">
-                Start Free Trial
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-8 py-4 glass-card gradient-border text-foreground font-display font-semibold rounded-2xl hover:bg-secondary/50 transition-colors">
-                Contact Sales
-              </button>
+          </div>
+          <div className="space-y-6">
+            <div>
+              <label className="text-muted-foreground text-sm mb-2 block">Your Name<span className="text-primary">*</span></label>
+              <div className="border-b border-border/50 pb-2">
+                <span className="text-muted-foreground/50 text-sm">Enter your name</span>
+              </div>
             </div>
+            <div>
+              <label className="text-muted-foreground text-sm mb-2 block">Phone number<span className="text-primary">*</span></label>
+              <div className="border-b border-border/50 pb-2">
+                <span className="text-muted-foreground/50 text-sm">Enter your phone</span>
+              </div>
+            </div>
+            <a href="#" className="inline-block px-10 py-3 border border-border rounded-full text-foreground font-medium hover:bg-secondary/30 transition-colors text-sm mt-4">
+              Call Me
+            </a>
           </div>
         </div>
       </div>
