@@ -4,26 +4,61 @@ import { supabase } from "@/integrations/supabase/client";
 const CTASection = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !phone.trim()) return;
+    setErrorMessage("");
+
+    if (!name.trim() || !phone.trim() || !email.trim()) {
+      setErrorMessage("All fields are required.");
+      setStatus("error");
+      return;
+    }
 
     setStatus("sending");
-    try {
-      const { error } = await supabase.from("contact_submissions").insert({ name: name.trim(), phone: phone.trim() });
-      if (error) throw error;
 
-      await supabase.functions.invoke("contact-notify", {
-        body: { name: name.trim(), phone: phone.trim() },
+    try {
+      const { error: insertError } = await supabase.from("contact_submissions").insert({ name: name.trim(), phone: phone.trim(), email: email.trim() });
+      if (insertError) {
+        const msg = (insertError as any).message || "";
+        if (msg.includes("Could not find the 'email' column") || msg.includes("column \"email\" does not exist")) {
+          const { error: fallbackError } = await supabase.from("contact_submissions").insert({ name: name.trim(), phone: phone.trim() });
+          if (fallbackError) throw fallbackError;
+        } else {
+          throw insertError;
+        }
+      }
+
+      const notifyResponse = await supabase.functions.invoke("contact-notify", {
+        body: JSON.stringify({ name: name.trim(), phone: phone.trim(), email: email.trim() }),
+        headers: { "Content-Type": "application/json" },
       });
+      console.log("contact-notify response", notifyResponse);
+      if (notifyResponse.error) {
+        throw notifyResponse.error;
+      }
 
       setStatus("sent");
       setName("");
       setPhone("");
+      setEmail("");
       setTimeout(() => setStatus("idle"), 3000);
-    } catch {
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      const message =
+        error && typeof error === "object"
+          ? "message" in error && typeof error.message === "string"
+            ? error.message
+            : "details" in error && typeof error.details === "string"
+            ? error.details
+            : "hint" in error && typeof error.hint === "string"
+            ? error.hint
+            : JSON.stringify(error)
+          : "Submission failed. Please try again.";
+      setErrorMessage(message || "Submission failed. Please try again.");
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
     }
@@ -57,6 +92,20 @@ const CTASection = () => {
             </div>
             <div>
               <label className="text-muted-foreground text-sm mb-2 block">
+                Email<span className="text-primary">*</span>
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                maxLength={100}
+                className="w-full bg-transparent border-b border-border/50 pb-2 text-foreground text-sm outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/50"
+              />
+            </div>
+            <div>
+              <label className="text-muted-foreground text-sm mb-2 block">
                 Phone number<span className="text-primary">*</span>
               </label>
               <input
@@ -78,6 +127,9 @@ const CTASection = () => {
             </button>
             {status === "sent" && (
               <p className="text-primary text-sm">Thank you! We'll contact you soon.</p>
+            )}
+            {errorMessage && (
+              <p className="text-destructive text-sm">{errorMessage}</p>
             )}
           </form>
         </div>
